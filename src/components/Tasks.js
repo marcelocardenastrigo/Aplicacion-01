@@ -4,7 +4,10 @@ class Tasks extends Component {
         return <div>
         {this.props.tasks.map(e => <p key={e.id}>
             {e.title} - {e.description} - {e.done} - {e.id}
-            
+            <input type="checkbox"/>
+            <button>
+                x
+            </button>
             </p>)
     }
     </div>
