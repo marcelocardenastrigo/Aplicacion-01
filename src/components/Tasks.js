@@ -1,16 +1,20 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+
+import Task from './Task';
 class Tasks extends Component {
     render() {
-        return <div>
-        {this.props.tasks.map(e => <p key={e.id}>
-            {e.title} - {e.description} - {e.done} - {e.id}
-            <input type="checkbox"/>
-            <button>
-                x
-            </button>
-            </p>)
-    }
-    </div>
-    }
-}
+        return this.props.tasks.map( task =>
+         <Task
+            task={task}
+            key={task.id}
+            deleteTask={this.props.deleteTask}
+            checkDone= {this.props.checkDone}
+            />);
+        }
+}    
+Tasks.propTypes ={
+    tasks: PropTypes.array.isRequired
+}     
+
 export default Tasks;

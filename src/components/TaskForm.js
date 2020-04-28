@@ -6,19 +6,18 @@ export default class TaskForm extends Component{
     }
     
     onSubmit = e =>{
-       // console.log('submiting...')
+       this.props.addTask(this.state.title, this.state.description)
         e.preventDefault();
     }
     onChange = e => {
-        //console.log(e.target.name, e.target.value)
         this.setState({
-            [e.target.name]: e.target.value
+        [e.target.name]: e.target.value
         })
     }
 
     
     render() {
-        this.props.addTask("marcelo","cardenas");
+        //this.props.addTask("marcelo1","cardenas1");
         return(
             <form onSubmit={this.onSubmit}>
                 <input 
@@ -31,7 +30,7 @@ export default class TaskForm extends Component{
                 <br/>
                 <br/>
                 <textarea 
-                name="description"
+                    name="description"
                     placeholder="Write a Description" 
                     onChange={this.onChange} 
                     value={this.state.description} 
